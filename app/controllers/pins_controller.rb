@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @pins = Pin.all.order("created_at DESC").limit(10).paginate(:page => params[:page], :per_page=>2)
+    @pins = Pin.all.order("created_at DESC").limit(10).paginate(:page => params[:page], :per_page=>25)
 
   end
 
