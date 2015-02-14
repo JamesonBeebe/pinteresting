@@ -79,7 +79,7 @@ Rails.application.configure do
 
   #Required for heroku
   #note; set this to actual host name
-  config.action_mailer.default_url_options = { host: 'jam-omr.herokuapp.com/', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'medellinterest.herokuapp.com/', port: 3000 }
 
   # Sets paperclip to upload images to amazon S3
   config.paperclip_defaults = {
