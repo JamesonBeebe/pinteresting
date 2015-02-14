@@ -5,7 +5,7 @@
 		<div class="panel panel-default">    
     <div class="panel-heading center">
     	<!--display full size image optional *.url(:large)-->
-			<%= image_tag @pin.image.url %>
+			<%= image_tag @pin.image.url(:large) %>
 		</div>
 		<div class="panel-body">
 			<p><%= @pin.description %></p>
