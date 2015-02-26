@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
   validates :congregation, presence: true
-
+	acts_as_commontator
 end

@@ -5,7 +5,6 @@ class PinsController < ApplicationController
 
   def index
     @pins = Pin.all.order("created_at DESC").limit(10).paginate(:page => params[:page], :per_page=>25)
-
   end
 
 
@@ -55,6 +54,8 @@ class PinsController < ApplicationController
     def correct_user
       if current_user != nil 
         @pin = current_user.pins.find_by(id: params[:id])
+        #maybe not necessary
+        #@pin = commontator_thread_show(commontable)
       end 
       redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
     end
