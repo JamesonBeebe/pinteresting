@@ -3,8 +3,14 @@
    # user
 %>
 
-<% can_edit = comment.can_be_edited_by?(user)
-   can_delete = comment.can_be_deleted_by?(user) %>
+<% if current_user.admin %>
+  <% can_edit = true 
+  can_delete = true %>
+<% else %>
+  <% can_edit = comment.can_be_edited_by?(current_user)
+     can_delete = comment.can_be_deleted_by?(current_user) %>
+<% end %>
+
 
 <% if can_edit %>
   <%= link_to t('commontator.comment.actions.edit'),

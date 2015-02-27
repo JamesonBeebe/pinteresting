@@ -4,7 +4,7 @@ class Pin < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	validates :description, presence: true
 	validates :image, presence: true
-	acts_as_commentable
+	acts_as_commontable
 
 	has_many :comments
 end

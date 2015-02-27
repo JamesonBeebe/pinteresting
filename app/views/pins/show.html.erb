@@ -7,25 +7,25 @@
     	<!--display full size image optional *.url(:large)-->
 			<%= image_tag @pin.image.url(:large), :class => 'img-responsive', :alt => 'Responsive image'%>
 		</div>
-		<div class="panel-body">
-			<p><%= @pin.description %></p>
-			<p><strong><%= @pin.user.name if @pin.user %></strong></p>
-			<p><%= @pin.user.congregation if @pin.user %></p>
+			<div class="panel-body">
+				<p><%= @pin.description %></p>
+				<p><strong><%= @pin.user.name if @pin.user %></strong></p>
+				<p><%= @pin.user.congregation if @pin.user %></p>
 
-			<% if @pin.user == current_user || current_user.try(:admin) %>
+				<% if @pin.user == current_user || current_user.try(:admin) %>
 
-				<%= link_to edit_pin_path(@pin) do %>
-					<span class="glyphicon glyphicon-edit"></span> 
-				Edit
+					<%= link_to edit_pin_path(@pin) do %>
+						<span class="glyphicon glyphicon-edit"></span> 
+					Edit
+					<% end %>
+
+	        <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+	        	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 
+	        	Delete
+	        <% end %>
+	      <%= commontator_thread(@pin) %>
 				<% end %>
-
-        <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 
-        	Delete
-        <% end %>
-        <%= commontator_thread(@pin) %> 
-			<% end %>
-		</div>
+			</div>
 		</div>
 	</div>
 </div>

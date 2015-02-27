@@ -12,5 +12,4 @@ class ApplicationController < ActionController::Base
 		devise_parameter_sanitizer.for(:account_update) << :name
 		devise_parameter_sanitizer.for(:account_update) << :congregation
 	end
-   
 end
